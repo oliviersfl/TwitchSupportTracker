@@ -1,0 +1,72 @@
+# Visual Studio cache files
+.vs/
+
+# Node.js dependencies
+node_modules/
+
+# Compiled output
+/dist/
+/out/
+*obj/
+
+# Local development server files
+/.npm/
+/.yarn/
+/yarn-error.log
+/.pnp/
+/.pnp.js
+.pnp.js.*
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# .NET Core artifacts
+/bin/
+/obj/
+
+# Visual Studio Code workspace settings
+.vscode/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results of an ATL project
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[0-9A-Fa-f]*/  # Ignore any folders/files that start with a hexadecimal digit
+
+# NuGet packages
+*.nupkg
+!.nuget/
+/*.nuget.props
+/*.nuget.targets
+
+# Build results of npm packages
+/dist/
+/packages/
+
+# Typescript generated files
+*.js
+*.js.map
+*.d.ts
+*.tsx?
+
+# ESLint cache
+/.eslintcache
+
+# Jest cache and coverage
+/.jest/
+/coverage/
+
+# Debug files
+*.log
+*.swp
+*.ipch/
