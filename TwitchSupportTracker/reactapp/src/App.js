@@ -24,8 +24,6 @@ const TableComponent = ({ transactions }) => {
                 <Table aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell className={classes.header}>Transaction ID</TableCell>
-                            <TableCell className={classes.header}>Streamer ID</TableCell>
                             <TableCell className={classes.header}>Transaction Type</TableCell>
                             <TableCell className={classes.header}>Amount Spent</TableCell>
                             <TableCell className={classes.header}>Bits</TableCell>
@@ -37,8 +35,6 @@ const TableComponent = ({ transactions }) => {
                     <TableBody>
                         {transactions.map((transaction) => (
                             <TableRow key={transaction.id}>
-                                <TableCell component="th" scope="row">{transaction.id}</TableCell>
-                                <TableCell>{transaction.streamerId}</TableCell>
                                 <TableCell>{transaction.transactionType}</TableCell>
                                 <TableCell>{transaction.amountSpent}</TableCell>
                                 <TableCell>{transaction.bits}</TableCell>
