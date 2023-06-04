@@ -1,9 +1,8 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const context = [
-    "/api/weatherforecast",
-    "/api/streamer",
-    "/api/transaction",
+    "/api/Streamer",
+    "/api/Transaction",
 ];
 
 module.exports = function (app) {
