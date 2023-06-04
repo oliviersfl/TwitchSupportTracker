@@ -1,83 +1,55 @@
-import React, { Component } from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navigation from './Components/Navigation';
+import Dashboard from './Components/Dashboard';
+import AddTransaction from './Components/AddTransaction';
 
-const useStyles = makeStyles((theme) => ({
-    content: {
-        marginTop: theme.spacing(3),
-    },
-    header: {
-        backgroundColor: '#BA68C8',  // light purple
-        color: 'white',
-        fontWeight: 'bold',  // makes the text bold
-        fontSize: '1.2rem',  // makes the text larger
-    },
-}));
-
-const TableComponent = ({ transactions }) => {
-    const classes = useStyles();
-
+export default function App() {
     return (
-        <div className={classes.content}>
-            <TableContainer component={Paper}>
-                <Table aria-label="simple table">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell className={classes.header}>Transaction Type</TableCell>
-                            <TableCell className={classes.header}>Amount Spent</TableCell>
-                            <TableCell className={classes.header}>Bits</TableCell>
-                            <TableCell className={classes.header}>Transaction Date</TableCell>
-                            <TableCell className={classes.header}>Currency</TableCell>
-                            <TableCell className={classes.header}>Notes</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {transactions.map((transaction) => (
-                            <TableRow key={transaction.id}>
-                                <TableCell>{transaction.transactionType}</TableCell>
-                                <TableCell>{transaction.amountSpent}</TableCell>
-                                <TableCell>{transaction.bits}</TableCell>
-                                <TableCell>{transaction.transactionDate}</TableCell>
-                                <TableCell>{transaction.currency}</TableCell>
-                                <TableCell>{transaction.notes}</TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        </div>
-    );
-};
-
-export default class App extends Component {
-    static displayName = App.name;
-
-    constructor(props) {
-        super(props);
-        this.state = { transactions: [], loading: true };
-    }
-
-    componentDidMount() {
-        this.populateTransactionData();
-    }
-
-    render() {
-        let contents = this.state.loading
-            ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
-            : <TableComponent transactions={this.state.transactions} />;
-
-        return (
+        <Router>
             <div className="App">
                 <Navigation />
-                {contents}
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/streamers" element={<StreamersPage />} />
+                    <Route path="/transactions" element={<TransactionsPage />} />
+                    <Route path="/add-transaction" element={<AddTransactionPage />} />
+                    <Route path="/analytics" element={<AnalyticsPage />} />
+                    <Route path="/settings" element={<SettingsPage />} />
+                </Routes>
             </div>
-        );
-    }
+        </Router>
+    );
+}
 
-    async populateTransactionData() {
-        const response = await fetch('api/Transaction');
-        const data = await response.json();
-        this.setState({ transactions: data, loading: false });
-    }
+function HomePage() {
+    return (
+        <div>
+            <Dashboard />
+        </div>
+    );
+}
+
+function StreamersPage() {
+    return <h1>Streamers Page</h1>;
+}
+
+function TransactionsPage() {
+    return <h1>Transactions Page</h1>;
+}
+
+function AddTransactionPage() {
+    return (
+        <div>
+            <AddTransaction />
+        </div>
+    );
+}
+
+function AnalyticsPage() {
+    return <h1>Analytics Page</h1>;
+}
+
+function SettingsPage() {
+    return <h1>Settings Page</h1>;
 }
