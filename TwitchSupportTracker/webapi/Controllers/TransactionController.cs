@@ -6,7 +6,7 @@ using webapi.Services;
 namespace webapi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("/api/[controller]")]
     public class TransactionController : ControllerBase
     {
         private readonly TransactionService _transactionService;

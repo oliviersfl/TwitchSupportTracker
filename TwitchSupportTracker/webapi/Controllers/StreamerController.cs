@@ -5,7 +5,7 @@ using webapi.Services;
 namespace webapi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("/api/[controller]")]
     public class StreamerController : ControllerBase
     {
         private readonly StreamerService _streamerService;
